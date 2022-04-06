@@ -54,7 +54,9 @@ public class AStarSearch {
         System.out.println("CHOSEN NODE MUST NOT BE UNPATHABLE, I.E SELECT A POSITION THAT DISPLAYS A 0");
         endCol = scnr.nextInt();
         this.endNode = this.board[endRow][endCol];
-
+        
+        
+        checkPathable();
         this.startNode.setG(0);
         this.startNode.setH(findH(this.startNode));
         this.startNode.setF();
@@ -260,6 +262,36 @@ public class AStarSearch {
                 openList.add(temp);
             }
         }
+    }
+
+    public void checkPathable() {
+        Scanner scnr = new Scanner(System.in);
+        int row;
+        int column;
+
+        if (this.startNode.getType() == 1) {
+            System.out.println("Given StartNode was unpathable.");
+            System.out.println("Please select a new starting row (0 - 14): ");
+            row = scnr.nextInt();
+            System.out.println("Please select a new starting column (0 - 14): ");
+            column = scnr.nextInt();
+            
+            this.startNode = this.board[row][column];
+            checkPathable();
+        }
+
+        if (this.endNode.getType() == 1) {
+            System.out.println("Given EndNode was unpathable.");
+            System.out.println("Please select a new ending row (0 - 14): ");
+            row = scnr.nextInt();
+            System.out.println("Please select a new ending column (0 - 14): ");
+            column = scnr.nextInt();
+
+            this.endNode = this.board[row][column];
+            checkPathable();
+        }
+
+        scnr.close();
     }
 
    @Override

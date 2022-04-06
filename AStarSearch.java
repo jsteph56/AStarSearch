@@ -32,7 +32,7 @@ public class AStarSearch {
 
    }
 
-   public void getBeginAndEnd() {
+   public void getStartAndEndPos() {
         Scanner scnr = new Scanner(System.in);
         int startRow = 0;
         int startCol = 0;

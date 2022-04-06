@@ -11,7 +11,7 @@ public class AStarSearch {
    public static void main(String args[]) {
         AStarSearch run = new AStarSearch();
         System.out.println(run.toString());
-        run.getBeginAndEnd();
+        run.getStartAndEndPos();
    }
    
    public AStarSearch () {
